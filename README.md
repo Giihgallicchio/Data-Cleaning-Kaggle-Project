@@ -1,89 +1,69 @@
-#  PROJETO INTEGRADOR - CIÊNCIA DE DADOS/LOW CODE 
+# PROJETO INTEGRADOR — CIÊNCIA DE DADOS
 
 ##  Tema do Projeto
-<h1>Saúde Mental no Trabalho no Setor de Tecnologia</h1>
+### Saúde Mental no Trabalho no Setor de Tecnologia
 
-
-
-##  Autora
-- Giovanna Galichio  
-
-
+---
 
 ##  Descrição do Projeto
 
-<p>Este projeto tem como foco a análise e o tratamento de dados relacionados à saúde mental no ambiente de trabalho, especialmente no setor de tecnologia. Com o aumento da pressão por produtividade e a constante necessidade de atualização profissional, questões como estresse, ansiedade e outros problemas psicológicos têm se tornado cada vez mais comuns.</p>
+Este projeto integrador tem como foco a engenharia, tratamento e preparação de dados relacionados à saúde mental no ambiente corporativo da área de tecnologia. Com o aumento da pressão por entregas ágeis e a constante necessidade de atualização profissional, distúrbios psicológicos (como estresse crônico e ansiedade) tornaram-se tópicos críticos de gestão.
 
-<p>A proposta do projeto é utilizar dados reais para compreender melhor esse cenário, aplicando técnicas de limpeza, padronização e organização dos dados para torná-los adequados para análise.</p>
+A proposta consiste em extrair dados reais de pesquisas globais e aplicar técnicas rigorosas de limpeza, normalização e tradução, transformando dados brutos em um conjunto de dados estruturado e confiável para fins analíticos.
 
+---
 
+##  Objetivos da Análise
 
-##  Objetivo da Análise
+*  **Padrões:** Preparar a base para identificação de sintomas recorrentes de ordem psicológica na área de TI.
+*  **Impacto:** Estruturar dados que correlacionem o bem-estar dos colaboradores com a produtividade no ambiente de trabalho.
+*  **Cruzamento de Dados:** Permitir a análise de fatores demográficos (idade, país) confrontados com o suporte organizacional oferecido pelas empresas.
+*  **Prontidão para BI:** Disponibilizar um arquivo final otimizado para a alimentação direta de relatórios e dashboards em ferramentas de Data Viz.
 
-<p>O objetivo principal é preparar e estruturar os dados para análise, permitindo:</p>
-
-<ul>
-    <li>Identificar padrões relacionados à saúde mental;</li>
-    <li>Analisar o impacto no ambiente de trabalho;</li>
-    <li>Relacionar fatores como idade, país e suporte organizacional;</li>
-    <li>Facilitar futuras análises e visualizações.</li>
-</ul>
-
-
+---
 
 ##  Base de Dados
 
-<p>Fonte: <a href="https://www.kaggle.com/code/chaitanya99/mental-health-in-tech-survey-eda" target="_blank">Kaggle</a></p>
+Os dados foram coletados a partir de um mapeamento global disponibilizado publicamente:
+👉 [Acessar Dataset Original (Mental Health in Tech Survey) no Kaggle](https://www.kaggle.com/code/chaitanya99/mental-health-in-tech-survey-eda)
 
-<p>O dataset utilizado contém informações de profissionais da área de tecnologia, abordando temas como histórico de saúde mental, acesso a tratamento, ambiente de trabalho e suporte organizacional.</p>
+O dataset original reúne respostas de questionários aplicados a profissionais de tecnologia, abordando histórico pessoal de saúde mental, facilidade de acesso a tratamentos médicos e a percepção dos funcionários sobre o suporte psicológico oferecido por seus empregadores.
 
-
+---
 
 ##  Processamento de Dados (ETL)
 
-Os dados foram tratados utilizando Python e Pandas, seguindo o processo de ETL:
+A pipeline de processamento foi construída no **Google Colab** utilizando a linguagem **Python** e a biblioteca **Pandas**:
 
-- **Arquivo Original:** Leitura do arquivo original `survey.csv`.
+1. **Extração:** Carga e leitura estruturada do arquivo bruto (`survey.csv`).
+2. **Transformação:**
+   * **Localização:** Tradução completa de cabeçalhos (colunas) e registros textuais para o português.
+   * **Normalização:** Conversão de respostas booleanas (ex: de `"Yes"/"No"` para `"Sim"/"Não"`).
+   * **Tratamento de Nulos:** Substituição de valores ausentes ou vazios por rótulos padronizados (`"S/N"` ou `"Sem Informações"`).
+   * **Sanitização:** Limpeza de outliers e dados impossíveis (valores incoerentes de idade ou localizações geográficas inválidas).
+   * **Redução de Dimensionalidade:** Remoção de colunas com textos livres irrelevantes (como caixas de comentários abertos).
+3. **Carga:** Salvamento e exportação do arquivo limpo e otimizado no formato `survey_Dados_Tratados.csv`.
 
-- **Transformação:**
-  - Tradução completa do dataset (colunas e valores)
-  - Padronização ("Yes/No" → "Sim/Não")
-  - Tratamento de nulos ("S/N" ou "Sem Informações")
-  - Limpeza de dados inconsistentes (idade, estados, categorias)
-  - Padronização de países e estados
-  - Ajuste da coluna de data
-  - Remoção de colunas desnecessárias (ex: comentários)
-
-- **Aquivo Tratado:** Exportação para `survey_Dados_Tratados.csv`.
-
-
-
-##  Ideia do Projeto
-
-<p>O foco do projeto foi garantir a qualidade e organização dos dados para possibilitar análises futuras e criação de dashboards.</p>
-
-<p>Com os dados tratados, torna-se possível identificar relações entre fatores como ambiente de trabalho, suporte organizacional e saúde mental dos profissionais.</p>
-
-
+---
 
 ##  Estrutura do Projeto
 
-- Projeto_Integrador_Ciencia_de_dados.ipynb
-- survey.csv
-- survey_Dados_Tratados.csv
-- README.md
-- LICENSE
+```text
+├── Projeto_Integrador_Ciencia_de_dados.ipynb  # Notebook Python com os scripts de ETL
+├── survey.csv                                 # Base de dados bruta (Kaggle)
+├── survey_Dados_Tratados.csv                  # Base de dados final limpa e localizada
+├── LICENSE                                    # Licença de uso do repositório
+└── README.md                                  # Documentação do projeto
+```
 
+---
 
+##  Resultado Obtido
 
-##  Resultado
+O projeto entregou com sucesso um ecossistema de dados totalmente higienizado e traduzido para a língua portuguesa. A eliminação de ruídos e dados espúrios garante que qualquer análise descritiva posterior ou modelo estatístico preditivo construído sobre essa base tratada possua alto grau de precisão e fidelidade à realidade.
 
-<p>Ao final do projeto, foi gerado um dataset limpo, padronizado e totalmente traduzido, pronto para análise exploratória e criação de dashboards.</p>
+---
 
+##  Referência
 
-
-##  Tecnologias utilizadas
-
-- Python  
-- Pandas  
-- Google Colab  
+Trabalho desenvolvido como parte integrante das atividades práticas obrigatórias do **Projeto Integrador da Faculdade Senac**.
